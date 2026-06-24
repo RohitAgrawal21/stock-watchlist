@@ -5,9 +5,7 @@ on:
     - cron: "0 13 * * *"   # 13:00 UTC = 18:30 IST, daily after NSE close
   workflow_dispatch:        # lets you run it manually from the Actions tab
   push:
-    branches: [main]
-    paths-ignore:
-      - "docs/**"           # don't re-trigger on the page it publishes
+    branches: [main]        # publishes the committed page instantly (no re-scrape)
 
 permissions:
   contents: read
@@ -23,12 +21,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      # Only re-scrape on the daily schedule or a manual run. On a normal push
+      # the committed docs/index.html is already fresh, so we publish it as-is
+      # (fast, ~20s, and no chance of overlapping runs cancelling each other).
+      - name: Set up Python
+        if: github.event_name != 'push'
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Install dependencies
+        if: github.event_name != 'push'
         run: pip install -r requirements-site.txt
       - name: Scrape + build static site
+        if: github.event_name != 'push'
         run: python build_site.py
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
