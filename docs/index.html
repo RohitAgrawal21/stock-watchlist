@@ -22,6 +22,8 @@
     background:var(--accent); color:#fff; border-radius:8px; font-size:14px;
     cursor:pointer; }
   .btn:hover { background:#1d4ed8; }
+  .btn-alt { background:#fff; color:var(--accent); }
+  .btn-alt:hover { background:#eef2ff; }
   .tablecard { background:var(--card); border:1px solid var(--line);
     border-radius:12px; overflow:auto; box-shadow:0 1px 2px rgba(0,0,0,.04); }
   table { border-collapse:collapse; width:100%; font-size:13px; white-space:nowrap; }
@@ -39,6 +41,7 @@
   .foot { color:var(--muted); font-size:12px; margin-top:14px; }
   .foot a { color:var(--accent); }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -48,7 +51,8 @@
     Click any column header to sort</div>
   <div class="controls">
     <input type="search" id="q" placeholder="Filter stocks…" oninput="filterRows()">
-    <button class="btn" onclick="downloadCSV()">⬇ Download CSV</button>
+    <button class="btn" onclick="downloadXLSX()">⬇ Download Excel</button>
+    <button class="btn btn-alt" onclick="downloadCSV()">⬇ CSV</button>
   </div>
   <div class="tablecard">
     <table id="t">
@@ -197,6 +201,53 @@ function downloadCSV() {
   a.download = 'stock-watchlist-' + new Date().toISOString().slice(0,10) + '.csv';
   a.click();
   URL.revokeObjectURL(a.href);
+}
+function downloadXLSX() {
+  if (typeof XLSX === 'undefined') { alert('Excel library is still loading — try again in a moment.'); return; }
+  const table = document.getElementById('t');
+  const heads = Array.from(table.tHead.rows[0].cells).map(th => th.getAttribute('data-col'));
+  const headerRow = ['Name', 'Symbol'].concat(heads.slice(1));
+  const colorIdx = new Set();
+  headerRow.forEach((h, i) => { if (/Return|Δ|YoY|QoQ|YTD/.test(h)) colorIdx.add(i); });
+  const aoa = [headerRow];
+  Array.from(table.tBodies[0].rows).forEach(r => {
+    if (r.style.display === 'none') return;            // respect the filter
+    const stock = r.cells[0];
+    const name = (stock.querySelector('a') || stock).textContent.trim();
+    const sym = (stock.querySelector('.sym') || {textContent:''}).textContent.trim();
+    const row = [name, sym];
+    Array.from(r.cells).slice(1).forEach(td => {
+      const ds = td.getAttribute('data-sort');
+      const num = parseFloat(ds);
+      const isNum = ds !== null && ds !== '' && !isNaN(num);
+      const txt = td.textContent.trim();
+      row.push(isNum ? num : (txt === '—' ? '' : txt));   // numbers stay numbers
+    });
+    aoa.push(row);
+  });
+  const ws = XLSX.utils.aoa_to_sheet(aoa);
+  const nCols = headerRow.length, nRows = aoa.length;
+  for (let c = 0; c < nCols; c++) {
+    const a = XLSX.utils.encode_cell({r:0, c:c});
+    if (ws[a]) ws[a].s = { font:{bold:true, color:{rgb:'FFFFFF'}},
+      fill:{fgColor:{rgb:'1F2937'}}, alignment:{horizontal: c<2?'left':'right'} };
+  }
+  for (let rr = 1; rr < nRows; rr++) {
+    for (let c = 0; c < nCols; c++) {
+      const a = XLSX.utils.encode_cell({r:rr, c:c});
+      const cell = ws[a]; if (!cell) continue;
+      cell.s = cell.s || {};
+      if (c >= 2) cell.s.alignment = {horizontal:'right'};
+      if (colorIdx.has(c) && typeof cell.v === 'number') {
+        cell.s.font = { bold:true, color:{rgb: cell.v>0 ? '0A7D34' : (cell.v<0 ? 'C01919' : '000000')} };
+      }
+    }
+  }
+  ws['!cols'] = headerRow.map((h, i) => ({ wch: i===0 ? 24 : (i===1 ? 12 : Math.max(10, h.length+2)) }));
+  ws['!autofilter'] = { ref: XLSX.utils.encode_range({s:{r:0,c:0}, e:{r:nRows-1, c:nCols-1}}) };
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Watchlist');
+  XLSX.writeFile(wb, 'stock-watchlist-' + new Date().toISOString().slice(0,10) + '.xlsx');
 }
 </script>
 </body>
