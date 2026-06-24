@@ -1,9 +1,504 @@
 {
   "watchlist": [
-    { "symbol": "KDDL",     "name": "KDDL Ltd",  "consolidated": true,  "yf_ticker": "KDDL.NS" },
-    { "symbol": "ETHOSLTD", "name": "Ethos Ltd", "consolidated": true,  "yf_ticker": "ETHOSLTD.NS" }
+    {
+      "symbol": "KDDL",
+      "name": "KDDL Ltd",
+      "consolidated": true,
+      "yf_ticker": "KDDL.NS"
+    },
+    {
+      "symbol": "ETHOSLTD",
+      "name": "Ethos Ltd",
+      "consolidated": true,
+      "yf_ticker": "ETHOSLTD.NS"
+    },
+    {
+      "symbol": "VINDHYATEL",
+      "name": "Vindhya Telelinks",
+      "consolidated": true,
+      "yf_ticker": "VINDHYATEL.NS"
+    },
+    {
+      "symbol": "INDIAMART",
+      "name": "IndiaMART",
+      "consolidated": true,
+      "yf_ticker": "INDIAMART.NS"
+    },
+    {
+      "symbol": "FINCABLES",
+      "name": "Finolex Cables",
+      "consolidated": true,
+      "yf_ticker": "FINCABLES.NS"
+    },
+    {
+      "symbol": "ABB",
+      "name": "ABB India",
+      "consolidated": true,
+      "yf_ticker": "ABB.NS"
+    },
+    {
+      "symbol": "MINDSPACE",
+      "name": "Mindspace REIT",
+      "consolidated": true,
+      "yf_ticker": "MINDSPACE.NS"
+    },
+    {
+      "symbol": "STLTECH",
+      "name": "Sterlite Technologies",
+      "consolidated": true,
+      "yf_ticker": "STLTECH.NS"
+    },
+    {
+      "symbol": "CARTRADE",
+      "name": "CarTrade Tech",
+      "consolidated": true,
+      "yf_ticker": "CARTRADE.NS"
+    },
+    {
+      "symbol": "CUMMINSIND",
+      "name": "Cummins India",
+      "consolidated": true,
+      "yf_ticker": "CUMMINSIND.NS"
+    },
+    {
+      "symbol": "VENUSPIPES",
+      "name": "Venus Pipes & Tubes",
+      "consolidated": true,
+      "yf_ticker": "VENUSPIPES.NS"
+    },
+    {
+      "symbol": "EMBASSY",
+      "name": "Embassy Office Parks REIT",
+      "consolidated": true,
+      "yf_ticker": "EMBASSY.NS"
+    },
+    {
+      "symbol": "DEEDEV",
+      "name": "Dee Development Engineers",
+      "consolidated": true,
+      "yf_ticker": "DEEDEV.NS"
+    },
+    {
+      "symbol": "BEL",
+      "name": "Bharat Electronics",
+      "consolidated": true,
+      "yf_ticker": "BEL.NS"
+    },
+    {
+      "symbol": "KIRLOSENG",
+      "name": "Kirloskar Oil Engines",
+      "consolidated": true,
+      "yf_ticker": "KIRLOSENG.NS"
+    },
+    {
+      "symbol": "INOXINDIA",
+      "name": "INOX India",
+      "consolidated": true,
+      "yf_ticker": "INOXINDIA.NS"
+    },
+    {
+      "symbol": "BIRET",
+      "name": "Brookfield India REIT",
+      "consolidated": true,
+      "yf_ticker": "BIRET.NS"
+    },
+    {
+      "symbol": "RPTECH",
+      "name": "Rashi Peripherals",
+      "consolidated": true,
+      "yf_ticker": "RPTECH.NS"
+    },
+    {
+      "symbol": "NEULANDLAB",
+      "name": "Neuland Laboratories",
+      "consolidated": true,
+      "yf_ticker": "NEULANDLAB.NS"
+    },
+    {
+      "symbol": "IDEAFORGE",
+      "name": "ideaForge Technology",
+      "consolidated": true,
+      "yf_ticker": "IDEAFORGE.NS"
+    },
+    {
+      "symbol": "DSSL",
+      "name": "Dynacons Systems",
+      "consolidated": true,
+      "yf_ticker": "DSSL.NS"
+    },
+    {
+      "symbol": "E2E",
+      "name": "E2E Networks",
+      "consolidated": true,
+      "yf_ticker": "E2E.NS"
+    },
+    {
+      "symbol": "CYIENT",
+      "name": "Cyient",
+      "consolidated": true,
+      "yf_ticker": "CYIENT.NS"
+    },
+    {
+      "symbol": "TECHNOE",
+      "name": "Techno Electric & Engineering",
+      "consolidated": true,
+      "yf_ticker": "TECHNOE.NS"
+    },
+    {
+      "symbol": "ARE&M",
+      "name": "Amara Raja Energy & Mobility",
+      "consolidated": true,
+      "yf_ticker": "ARE&M.NS"
+    },
+    {
+      "symbol": "TDPOWERSYS",
+      "name": "TD Power Systems",
+      "consolidated": true,
+      "yf_ticker": "TDPOWERSYS.NS"
+    },
+    {
+      "symbol": "ANGELONE",
+      "name": "Angel One",
+      "consolidated": true,
+      "yf_ticker": "ANGELONE.NS"
+    },
+    {
+      "symbol": "KEC",
+      "name": "KEC International",
+      "consolidated": true,
+      "yf_ticker": "KEC.NS"
+    },
+    {
+      "symbol": "TATAELXSI",
+      "name": "Tata Elxsi",
+      "consolidated": true,
+      "yf_ticker": "TATAELXSI.NS"
+    },
+    {
+      "symbol": "MASTEK",
+      "name": "Mastek",
+      "consolidated": true,
+      "yf_ticker": "MASTEK.NS"
+    },
+    {
+      "symbol": "ZAGGLE",
+      "name": "Zaggle",
+      "consolidated": true,
+      "yf_ticker": "ZAGGLE.NS"
+    },
+    {
+      "symbol": "SYRMA",
+      "name": "Syrma SGS Technology",
+      "consolidated": true,
+      "yf_ticker": "SYRMA.NS"
+    },
+    {
+      "symbol": "WIPRO",
+      "name": "Wipro",
+      "consolidated": true,
+      "yf_ticker": "WIPRO.NS"
+    },
+    {
+      "symbol": "CYIENTDLM",
+      "name": "Cyient DLM",
+      "consolidated": true,
+      "yf_ticker": "CYIENTDLM.NS"
+    },
+    {
+      "symbol": "INTELLECT",
+      "name": "Intellect Design Arena",
+      "consolidated": true,
+      "yf_ticker": "INTELLECT.NS"
+    },
+    {
+      "symbol": "CGPOWER",
+      "name": "CG Power",
+      "consolidated": true,
+      "yf_ticker": "CGPOWER.NS"
+    },
+    {
+      "symbol": "NAVINFLUOR",
+      "name": "Navin Fluorine",
+      "consolidated": true,
+      "yf_ticker": "NAVINFLUOR.NS"
+    },
+    {
+      "symbol": "NAUKRI",
+      "name": "Info Edge",
+      "consolidated": true,
+      "yf_ticker": "NAUKRI.NS"
+    },
+    {
+      "symbol": "BAJFINANCE",
+      "name": "Bajaj Finance",
+      "consolidated": true,
+      "yf_ticker": "BAJFINANCE.NS"
+    },
+    {
+      "symbol": "SYNGENE",
+      "name": "Syngene International",
+      "consolidated": true,
+      "yf_ticker": "SYNGENE.NS"
+    },
+    {
+      "symbol": "INDGN",
+      "name": "Indegene",
+      "consolidated": true,
+      "yf_ticker": "INDGN.NS"
+    },
+    {
+      "symbol": "HCLTECH",
+      "name": "HCLTech",
+      "consolidated": true,
+      "yf_ticker": "HCLTECH.NS"
+    },
+    {
+      "symbol": "SANSERA",
+      "name": "Sansera Engineering",
+      "consolidated": true,
+      "yf_ticker": "SANSERA.NS"
+    },
+    {
+      "symbol": "MPHASIS",
+      "name": "Mphasis",
+      "consolidated": true,
+      "yf_ticker": "MPHASIS.NS"
+    },
+    {
+      "symbol": "BLUESTARCO",
+      "name": "Blue Star",
+      "consolidated": true,
+      "yf_ticker": "BLUESTARCO.NS"
+    },
+    {
+      "symbol": "FSL",
+      "name": "Firstsource Solutions",
+      "consolidated": true,
+      "yf_ticker": "FSL.NS"
+    },
+    {
+      "symbol": "INFY",
+      "name": "Infosys",
+      "consolidated": true,
+      "yf_ticker": "INFY.NS"
+    },
+    {
+      "symbol": "ECLERX",
+      "name": "eClerx Services",
+      "consolidated": true,
+      "yf_ticker": "ECLERX.NS"
+    },
+    {
+      "symbol": "IXIGO",
+      "name": "ixigo",
+      "consolidated": true,
+      "yf_ticker": "IXIGO.NS"
+    },
+    {
+      "symbol": "CENTUM",
+      "name": "Centum Electronics",
+      "consolidated": true,
+      "yf_ticker": "CENTUM.NS"
+    },
+    {
+      "symbol": "AETHER",
+      "name": "Aether Industries",
+      "consolidated": true,
+      "yf_ticker": "AETHER.NS"
+    },
+    {
+      "symbol": "LTTS",
+      "name": "LTTS",
+      "consolidated": true,
+      "yf_ticker": "LTTS.NS"
+    },
+    {
+      "symbol": "UNIVCABLES",
+      "name": "Universal Cables",
+      "consolidated": true,
+      "yf_ticker": "UNIVCABLES.NS"
+    },
+    {
+      "symbol": "POLYCAB",
+      "name": "Polycab India",
+      "consolidated": true,
+      "yf_ticker": "POLYCAB.NS"
+    },
+    {
+      "symbol": "TCS",
+      "name": "TCS",
+      "consolidated": true,
+      "yf_ticker": "TCS.NS"
+    },
+    {
+      "symbol": "DIVISLAB",
+      "name": "Divi's Laboratories",
+      "consolidated": true,
+      "yf_ticker": "DIVISLAB.NS"
+    },
+    {
+      "symbol": "NEWGEN",
+      "name": "Newgen Software",
+      "consolidated": true,
+      "yf_ticker": "NEWGEN.NS"
+    },
+    {
+      "symbol": "SAGILITY",
+      "name": "Sagility India",
+      "consolidated": true,
+      "yf_ticker": "SAGILITY.NS"
+    },
+    {
+      "symbol": "TECHM",
+      "name": "Tech Mahindra",
+      "consolidated": true,
+      "yf_ticker": "TECHM.NS"
+    },
+    {
+      "symbol": "RRKABEL",
+      "name": "RR Kabel",
+      "consolidated": true,
+      "yf_ticker": "RRKABEL.NS"
+    },
+    {
+      "symbol": "KEI",
+      "name": "KEI Industries",
+      "consolidated": true,
+      "yf_ticker": "KEI.NS"
+    },
+    {
+      "symbol": "HFCL",
+      "name": "HFCL",
+      "consolidated": true,
+      "yf_ticker": "HFCL.NS"
+    },
+    {
+      "symbol": "CAMS",
+      "name": "CAMS",
+      "consolidated": true,
+      "yf_ticker": "CAMS.NS"
+    },
+    {
+      "symbol": "ZENTEC",
+      "name": "Zen Technologies",
+      "consolidated": true,
+      "yf_ticker": "ZENTEC.NS"
+    },
+    {
+      "symbol": "KPITTECH",
+      "name": "KPIT Technologies",
+      "consolidated": true,
+      "yf_ticker": "KPITTECH.NS"
+    },
+    {
+      "symbol": "PERSISTENT",
+      "name": "Persistent Systems",
+      "consolidated": true,
+      "yf_ticker": "PERSISTENT.NS"
+    },
+    {
+      "symbol": "APARINDS",
+      "name": "Apar Industries",
+      "consolidated": true,
+      "yf_ticker": "APARINDS.NS"
+    },
+    {
+      "symbol": "TATATECH",
+      "name": "Tata Technologies",
+      "consolidated": true,
+      "yf_ticker": "TATATECH.NS"
+    },
+    {
+      "symbol": "PAYTM",
+      "name": "Paytm",
+      "consolidated": true,
+      "yf_ticker": "PAYTM.NS"
+    },
+    {
+      "symbol": "GVT&D",
+      "name": "GE Vernova T&D India",
+      "consolidated": true,
+      "yf_ticker": "GVT&D.NS"
+    },
+    {
+      "symbol": "EMUDHRA",
+      "name": "eMudhra",
+      "consolidated": true,
+      "yf_ticker": "EMUDHRA.NS"
+    },
+    {
+      "symbol": "LAURUSLABS",
+      "name": "Laurus Labs",
+      "consolidated": true,
+      "yf_ticker": "LAURUSLABS.NS"
+    },
+    {
+      "symbol": "AVALON",
+      "name": "Avalon Technologies",
+      "consolidated": true,
+      "yf_ticker": "AVALON.NS"
+    },
+    {
+      "symbol": "TEJASNET",
+      "name": "Tejas Networks",
+      "consolidated": true,
+      "yf_ticker": "TEJASNET.NS"
+    },
+    {
+      "symbol": "POLICYBZR",
+      "name": "PB Fintech",
+      "consolidated": true,
+      "yf_ticker": "POLICYBZR.NS"
+    },
+    {
+      "symbol": "DIXON",
+      "name": "Dixon Technologies",
+      "consolidated": true,
+      "yf_ticker": "DIXON.NS"
+    },
+    {
+      "symbol": "CPPLUS",
+      "name": "Aditya Infotech",
+      "consolidated": true,
+      "yf_ticker": "CPPLUS.NS"
+    },
+    {
+      "symbol": "NETWEB",
+      "name": "Netweb Technologies",
+      "consolidated": true,
+      "yf_ticker": "NETWEB.NS"
+    },
+    {
+      "symbol": "AEROFLEX",
+      "name": "Aeroflex Industries",
+      "consolidated": true,
+      "yf_ticker": "AEROFLEX.NS"
+    },
+    {
+      "symbol": "NYKAA",
+      "name": "Nykaa",
+      "consolidated": true,
+      "yf_ticker": "NYKAA.NS"
+    },
+    {
+      "symbol": "POWERINDIA",
+      "name": "Hitachi Energy India",
+      "consolidated": true,
+      "yf_ticker": "POWERINDIA.NS"
+    },
+    {
+      "symbol": "AWFIS",
+      "name": "Awfis Space Solutions",
+      "consolidated": true,
+      "yf_ticker": "AWFIS.NS"
+    },
+    {
+      "symbol": "MTARTECH",
+      "name": "MTAR Technologies",
+      "consolidated": true,
+      "yf_ticker": "MTARTECH.NS"
+    }
   ],
-
   "columns": [
     "name",
     "Price (live)",
@@ -31,6 +526,5 @@
     "DIIs Δ",
     "Updated"
   ],
-
   "_note": "Add stocks to 'watchlist' (symbol = screener.in/NSE ticker). To add/remove dashboard columns, edit 'columns' or use the sidebar in the app. Any metric the scraper produces can be added here by its exact key."
 }
