@@ -1,0 +1,7 @@
+# Streamlit app config (used both locally and on Streamlit Community Cloud)
+[theme]
+base = "light"
+primaryColor = "#2563eb"
+
+[server]
+headless = true

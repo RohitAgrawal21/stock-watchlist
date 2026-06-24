@@ -1,0 +1,36 @@
+{
+  "watchlist": [
+    { "symbol": "KDDL",     "name": "KDDL Ltd",  "consolidated": true,  "yf_ticker": "KDDL.NS" },
+    { "symbol": "ETHOSLTD", "name": "Ethos Ltd", "consolidated": true,  "yf_ticker": "ETHOSLTD.NS" }
+  ],
+
+  "columns": [
+    "name",
+    "Price (live)",
+    "1M Return %",
+    "3M Return %",
+    "1Y Return %",
+    "Market Cap (Cr)",
+    "Stock P/E",
+    "P/B",
+    "Dividend Yield %",
+    "Revenue (Cr)",
+    "Revenue YoY %",
+    "EBITDA (Cr)",
+    "EBITDA YoY %",
+    "OPM %",
+    "Net Profit (Cr)",
+    "Net Profit YoY %",
+    "ROCE %",
+    "ROE %",
+    "Promoters %",
+    "Promoters Δ",
+    "FIIs %",
+    "FIIs Δ",
+    "DIIs %",
+    "DIIs Δ",
+    "Updated"
+  ],
+
+  "_note": "Add stocks to 'watchlist' (symbol = screener.in/NSE ticker). To add/remove dashboard columns, edit 'columns' or use the sidebar in the app. Any metric the scraper produces can be added here by its exact key."
+}
