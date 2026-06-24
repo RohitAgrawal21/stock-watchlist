@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stock Watchlist</title>
+<style>
+  :root {
+    --bg:#f7f8fa; --card:#fff; --line:#e5e7eb; --txt:#111827; --muted:#6b7280;
+    --head:#1f2937; --pos:#0a7d34; --neg:#c01919; --accent:#2563eb;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt);
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; }
+  .wrap { max-width:1300px; margin:0 auto; padding:24px 16px 60px; }
+  h1 { font-size:22px; margin:0 0 2px; }
+  .meta { color:var(--muted); font-size:13px; margin-bottom:16px; }
+  .controls { margin-bottom:12px; }
+  input[type=search] { padding:8px 12px; border:1px solid var(--line);
+    border-radius:8px; font-size:14px; width:240px; }
+  .tablecard { background:var(--card); border:1px solid var(--line);
+    border-radius:12px; overflow:auto; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+  table { border-collapse:collapse; width:100%; font-size:13px; white-space:nowrap; }
+  th, td { padding:9px 12px; text-align:right; border-bottom:1px solid var(--line); }
+  th { position:sticky; top:0; background:var(--head); color:#fff; cursor:pointer;
+    user-select:none; font-weight:600; }
+  th:hover { background:#374151; }
+  th:first-child, td:first-child { text-align:left; position:sticky; left:0; }
+  td:first-child { background:var(--card); }
+  tbody tr:hover td { background:#eef2ff; }
+  td.stock a { color:var(--accent); text-decoration:none; font-weight:600; }
+  td.stock .sym { display:block; color:var(--muted); font-size:11px; font-weight:400; }
+  td.pos { color:var(--pos); font-weight:600; }
+  td.neg { color:var(--neg); font-weight:600; }
+  .foot { color:var(--muted); font-size:12px; margin-top:14px; }
+  .foot a { color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📈 Stock Watchlist</h1>
+  <div class="meta">Last updated: 2026-06-24 12:47 &middot;
+    Fundamentals from screener.in &middot; Price from Yahoo Finance &middot;
+    Click any column header to sort</div>
+  <div class="controls">
+    <input type="search" id="q" placeholder="Filter stocks…" oninput="filterRows()">
+  </div>
+  <div class="tablecard">
+    <table id="t">
+      <thead><tr><th data-type="text" onclick="sortBy(this,0)">Stock</th><th data-type="num" onclick="sortBy(this,1)">Price (live)</th><th data-type="num" onclick="sortBy(this,2)">1M Return %</th><th data-type="num" onclick="sortBy(this,3)">3M Return %</th><th data-type="num" onclick="sortBy(this,4)">1Y Return %</th><th data-type="num" onclick="sortBy(this,5)">Market Cap (Cr)</th><th data-type="num" onclick="sortBy(this,6)">Stock P/E</th><th data-type="num" onclick="sortBy(this,7)">P/B</th><th data-type="num" onclick="sortBy(this,8)">Dividend Yield %</th><th data-type="num" onclick="sortBy(this,9)">Revenue (Cr)</th><th data-type="num" onclick="sortBy(this,10)">Revenue YoY %</th><th data-type="num" onclick="sortBy(this,11)">EBITDA (Cr)</th><th data-type="num" onclick="sortBy(this,12)">EBITDA YoY %</th><th data-type="num" onclick="sortBy(this,13)">OPM %</th><th data-type="num" onclick="sortBy(this,14)">Net Profit (Cr)</th><th data-type="num" onclick="sortBy(this,15)">Net Profit YoY %</th><th data-type="num" onclick="sortBy(this,16)">ROCE %</th><th data-type="num" onclick="sortBy(this,17)">ROE %</th><th data-type="num" onclick="sortBy(this,18)">Promoters %</th><th data-type="num" onclick="sortBy(this,19)">Promoters Δ</th><th data-type="num" onclick="sortBy(this,20)">FIIs %</th><th data-type="num" onclick="sortBy(this,21)">FIIs Δ</th><th data-type="num" onclick="sortBy(this,22)">DIIs %</th><th data-type="num" onclick="sortBy(this,23)">DIIs Δ</th></tr></thead>
+      <tbody>
+<tr><td class="stock" data-sort="KDDL Ltd"><a href="https://www.screener.in/company/KDDL/" target="_blank">KDDL Ltd</a><span class="sym">KDDL</span></td><td class="" data-sort="3240.0">3,240</td><td class="pos" data-sort="15.99">15.99</td><td class="pos" data-sort="47.41">47.41</td><td class="pos" data-sort="17.51">17.51</td><td class="" data-sort="3957.0">3,957</td><td class="" data-sort="44.4">44.4</td><td class="" data-sort="3.67">3.67</td><td class="" data-sort="0.45">0.45</td><td class="" data-sort="2153.0">2,153</td><td class="pos" data-sort="30.64">30.64</td><td class="" data-sort="309.0">309</td><td class="pos" data-sort="14.87">14.87</td><td class="" data-sort="14.0">14</td><td class="" data-sort="135.0">135</td><td class="neg" data-sort="-4.93">-4.93</td><td class="" data-sort="11.2">11.2</td><td class="" data-sort="8.94">8.94</td><td class="" data-sort="50.44">50.44</td><td class="" data-sort="0.0">0</td><td class="" data-sort="8.16">8.16</td><td class="neg" data-sort="-0.22">-0.22</td><td class="" data-sort="1.88">1.88</td><td class="pos" data-sort="0.05">0.05</td></tr>
+<tr><td class="stock" data-sort="Ethos Ltd"><a href="https://www.screener.in/company/ETHOSLTD/" target="_blank">Ethos Ltd</a><span class="sym">ETHOSLTD</span></td><td class="" data-sort="2410.0">2,410</td><td class="neg" data-sort="-0.75">-0.75</td><td class="pos" data-sort="5.54">5.54</td><td class="neg" data-sort="-10.34">-10.34</td><td class="" data-sort="6450.0">6,450</td><td class="" data-sort="67.2">67.2</td><td class="" data-sort="4.33">4.33</td><td class="" data-sort="0.0">0</td><td class="" data-sort="1612.0">1,612</td><td class="pos" data-sort="28.75">28.75</td><td class="" data-sort="203.0">203</td><td class="pos" data-sort="3.05">3.05</td><td class="" data-sort="13.0">13</td><td class="" data-sort="96.0">96</td><td class="" data-sort="0.0">0</td><td class="" data-sort="9.82">9.82</td><td class="" data-sort="7.77">7.77</td><td class="" data-sort="50.58">50.58</td><td class="" data-sort="0.0">0</td><td class="" data-sort="10.89">10.89</td><td class="neg" data-sort="-1.7">-1.7</td><td class="" data-sort="23.59">23.59</td><td class="pos" data-sort="2.34">2.34</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="foot">Auto-updates daily. Not investment advice.</div>
+</div>
+<script>
+let sortState = {};
+function sortBy(th, col) {
+  const table = document.getElementById('t');
+  const tbody = table.tBodies[0];
+  const rows = Array.from(tbody.rows);
+  const asc = !(sortState[col] === 'asc');
+  sortState = {}; sortState[col] = asc ? 'asc' : 'desc';
+  rows.sort((a, b) => {
+    let x = a.cells[col].getAttribute('data-sort');
+    let y = b.cells[col].getAttribute('data-sort');
+    const nx = parseFloat(x), ny = parseFloat(y);
+    const bothNum = !isNaN(nx) && !isNaN(ny);
+    if (x === '' && y === '') return 0;
+    if (x === '') return 1;          // blanks always sink
+    if (y === '') return -1;
+    let cmp = bothNum ? (nx - ny) : String(x).localeCompare(String(y));
+    return asc ? cmp : -cmp;
+  });
+  rows.forEach(r => tbody.appendChild(r));
+  document.querySelectorAll('th').forEach(h => h.textContent = h.textContent.replace(/[ ▲▼]+$/,''));
+  th.textContent = th.textContent + (asc ? ' ▲' : ' ▼');
+}
+function filterRows() {
+  const q = document.getElementById('q').value.toLowerCase();
+  document.querySelectorAll('#t tbody tr').forEach(r => {
+    r.style.display = r.cells[0].textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
