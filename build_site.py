@@ -57,9 +57,9 @@ def build_html(cfg: dict, data: dict) -> str:
             updated = d["Updated"]
 
     # --- table head ---
-    ths = ['<th data-type="text" onclick="sortBy(this,0)">Stock</th>']
+    ths = ['<th data-col="Stock" onclick="sortBy(this,0)">Stock</th>']
     for i, c in enumerate(columns, start=1):
-        ths.append(f'<th data-type="num" onclick="sortBy(this,{i})">{html.escape(c)}</th>')
+        ths.append(f'<th data-col="{html.escape(c)}" onclick="sortBy(this,{i})">{html.escape(c)}</th>')
     thead = "<tr>" + "".join(ths) + "</tr>"
 
     # --- table body ---
@@ -103,6 +103,10 @@ def build_html(cfg: dict, data: dict) -> str:
   .controls {{ margin-bottom:12px; }}
   input[type=search] {{ padding:8px 12px; border:1px solid var(--line);
     border-radius:8px; font-size:14px; width:240px; }}
+  .btn {{ margin-left:8px; padding:8px 14px; border:1px solid var(--accent);
+    background:var(--accent); color:#fff; border-radius:8px; font-size:14px;
+    cursor:pointer; }}
+  .btn:hover {{ background:#1d4ed8; }}
   .tablecard {{ background:var(--card); border:1px solid var(--line);
     border-radius:12px; overflow:auto; box-shadow:0 1px 2px rgba(0,0,0,.04); }}
   table {{ border-collapse:collapse; width:100%; font-size:13px; white-space:nowrap; }}
@@ -129,6 +133,7 @@ def build_html(cfg: dict, data: dict) -> str:
     Click any column header to sort</div>
   <div class="controls">
     <input type="search" id="q" placeholder="Filter stocks…" oninput="filterRows()">
+    <button class="btn" onclick="downloadCSV()">⬇ Download CSV</button>
   </div>
   <div class="tablecard">
     <table id="t">
@@ -168,6 +173,33 @@ function filterRows() {{
   document.querySelectorAll('#t tbody tr').forEach(r => {{
     r.style.display = r.cells[0].textContent.toLowerCase().includes(q) ? '' : 'none';
   }});
+}}
+function csvCell(v) {{
+  v = (v == null ? '' : String(v));
+  return /[",\\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+}}
+function downloadCSV() {{
+  const table = document.getElementById('t');
+  const heads = Array.from(table.tHead.rows[0].cells).map(th => th.getAttribute('data-col'));
+  // 'Stock' becomes two columns in the export: Name + Symbol
+  const out = [['Name', 'Symbol'].concat(heads.slice(1)).map(csvCell).join(',')];
+  Array.from(table.tBodies[0].rows).forEach(r => {{
+    if (r.style.display === 'none') return;            // respect the filter
+    const stock = r.cells[0];
+    const name = (stock.querySelector('a') || stock).textContent.trim();
+    const sym = (stock.querySelector('.sym') || {{textContent:''}}).textContent.trim();
+    const rest = Array.from(r.cells).slice(1).map(td => {{
+      const ds = td.getAttribute('data-sort');
+      return ds !== null && ds !== '' ? ds : td.textContent.trim();
+    }});
+    out.push([name, sym].concat(rest).map(csvCell).join(','));
+  }});
+  const blob = new Blob([out.join('\\n')], {{type: 'text/csv;charset=utf-8;'}});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'stock-watchlist-' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
 }}
 </script>
 </body>

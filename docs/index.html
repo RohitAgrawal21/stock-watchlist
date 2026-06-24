@@ -18,6 +18,10 @@
   .controls { margin-bottom:12px; }
   input[type=search] { padding:8px 12px; border:1px solid var(--line);
     border-radius:8px; font-size:14px; width:240px; }
+  .btn { margin-left:8px; padding:8px 14px; border:1px solid var(--accent);
+    background:var(--accent); color:#fff; border-radius:8px; font-size:14px;
+    cursor:pointer; }
+  .btn:hover { background:#1d4ed8; }
   .tablecard { background:var(--card); border:1px solid var(--line);
     border-radius:12px; overflow:auto; box-shadow:0 1px 2px rgba(0,0,0,.04); }
   table { border-collapse:collapse; width:100%; font-size:13px; white-space:nowrap; }
@@ -39,15 +43,16 @@
 <body>
 <div class="wrap">
   <h1>📈 Stock Watchlist</h1>
-  <div class="meta">Last updated: 2026-06-24 13:08 &middot;
+  <div class="meta">Last updated: 2026-06-24 13:07 &middot;
     Fundamentals from screener.in &middot; Price from Yahoo Finance &middot;
     Click any column header to sort</div>
   <div class="controls">
     <input type="search" id="q" placeholder="Filter stocks…" oninput="filterRows()">
+    <button class="btn" onclick="downloadCSV()">⬇ Download CSV</button>
   </div>
   <div class="tablecard">
     <table id="t">
-      <thead><tr><th data-type="text" onclick="sortBy(this,0)">Stock</th><th data-type="num" onclick="sortBy(this,1)">Price (live)</th><th data-type="num" onclick="sortBy(this,2)">1M Return %</th><th data-type="num" onclick="sortBy(this,3)">3M Return %</th><th data-type="num" onclick="sortBy(this,4)">1Y Return %</th><th data-type="num" onclick="sortBy(this,5)">Market Cap (Cr)</th><th data-type="num" onclick="sortBy(this,6)">Stock P/E</th><th data-type="num" onclick="sortBy(this,7)">P/B</th><th data-type="num" onclick="sortBy(this,8)">Dividend Yield %</th><th data-type="num" onclick="sortBy(this,9)">Revenue (Cr)</th><th data-type="num" onclick="sortBy(this,10)">Revenue YoY %</th><th data-type="num" onclick="sortBy(this,11)">EBITDA (Cr)</th><th data-type="num" onclick="sortBy(this,12)">EBITDA YoY %</th><th data-type="num" onclick="sortBy(this,13)">OPM %</th><th data-type="num" onclick="sortBy(this,14)">Net Profit (Cr)</th><th data-type="num" onclick="sortBy(this,15)">Net Profit YoY %</th><th data-type="num" onclick="sortBy(this,16)">ROCE %</th><th data-type="num" onclick="sortBy(this,17)">ROE %</th><th data-type="num" onclick="sortBy(this,18)">Promoters %</th><th data-type="num" onclick="sortBy(this,19)">Promoters Δ</th><th data-type="num" onclick="sortBy(this,20)">FIIs %</th><th data-type="num" onclick="sortBy(this,21)">FIIs Δ</th><th data-type="num" onclick="sortBy(this,22)">DIIs %</th><th data-type="num" onclick="sortBy(this,23)">DIIs Δ</th></tr></thead>
+      <thead><tr><th data-col="Stock" onclick="sortBy(this,0)">Stock</th><th data-col="Price (live)" onclick="sortBy(this,1)">Price (live)</th><th data-col="1M Return %" onclick="sortBy(this,2)">1M Return %</th><th data-col="3M Return %" onclick="sortBy(this,3)">3M Return %</th><th data-col="1Y Return %" onclick="sortBy(this,4)">1Y Return %</th><th data-col="Market Cap (Cr)" onclick="sortBy(this,5)">Market Cap (Cr)</th><th data-col="Stock P/E" onclick="sortBy(this,6)">Stock P/E</th><th data-col="P/B" onclick="sortBy(this,7)">P/B</th><th data-col="Dividend Yield %" onclick="sortBy(this,8)">Dividend Yield %</th><th data-col="Revenue (Cr)" onclick="sortBy(this,9)">Revenue (Cr)</th><th data-col="Revenue YoY %" onclick="sortBy(this,10)">Revenue YoY %</th><th data-col="EBITDA (Cr)" onclick="sortBy(this,11)">EBITDA (Cr)</th><th data-col="EBITDA YoY %" onclick="sortBy(this,12)">EBITDA YoY %</th><th data-col="OPM %" onclick="sortBy(this,13)">OPM %</th><th data-col="Net Profit (Cr)" onclick="sortBy(this,14)">Net Profit (Cr)</th><th data-col="Net Profit YoY %" onclick="sortBy(this,15)">Net Profit YoY %</th><th data-col="ROCE %" onclick="sortBy(this,16)">ROCE %</th><th data-col="ROE %" onclick="sortBy(this,17)">ROE %</th><th data-col="Promoters %" onclick="sortBy(this,18)">Promoters %</th><th data-col="Promoters Δ" onclick="sortBy(this,19)">Promoters Δ</th><th data-col="FIIs %" onclick="sortBy(this,20)">FIIs %</th><th data-col="FIIs Δ" onclick="sortBy(this,21)">FIIs Δ</th><th data-col="DIIs %" onclick="sortBy(this,22)">DIIs %</th><th data-col="DIIs Δ" onclick="sortBy(this,23)">DIIs Δ</th></tr></thead>
       <tbody>
 <tr><td class="stock" data-sort="KDDL Ltd"><a href="https://www.screener.in/company/KDDL/" target="_blank">KDDL Ltd</a><span class="sym">KDDL</span></td><td class="" data-sort="3304.0">3,304</td><td class="pos" data-sort="18.28">18.28</td><td class="pos" data-sort="50.33">50.33</td><td class="pos" data-sort="19.83">19.83</td><td class="" data-sort="4020.0">4,020</td><td class="" data-sort="45.1">45.1</td><td class="" data-sort="3.72">3.72</td><td class="" data-sort="0.45">0.45</td><td class="" data-sort="2153.0">2,153</td><td class="pos" data-sort="30.64">30.64</td><td class="" data-sort="309.0">309</td><td class="pos" data-sort="14.87">14.87</td><td class="" data-sort="14.0">14</td><td class="" data-sort="135.0">135</td><td class="neg" data-sort="-4.93">-4.93</td><td class="" data-sort="11.2">11.2</td><td class="" data-sort="8.94">8.94</td><td class="" data-sort="50.44">50.44</td><td class="" data-sort="0.0">0</td><td class="" data-sort="8.16">8.16</td><td class="neg" data-sort="-0.22">-0.22</td><td class="" data-sort="1.88">1.88</td><td class="pos" data-sort="0.05">0.05</td></tr>
 <tr><td class="stock" data-sort="Ethos Ltd"><a href="https://www.screener.in/company/ETHOSLTD/" target="_blank">Ethos Ltd</a><span class="sym">ETHOSLTD</span></td><td class="" data-sort="2409.9">2,410</td><td class="neg" data-sort="-0.75">-0.75</td><td class="pos" data-sort="5.54">5.54</td><td class="neg" data-sort="-10.35">-10.35</td><td class="" data-sort="6450.0">6,450</td><td class="" data-sort="67.2">67.2</td><td class="" data-sort="4.33">4.33</td><td class="" data-sort="0.0">0</td><td class="" data-sort="1612.0">1,612</td><td class="pos" data-sort="28.75">28.75</td><td class="" data-sort="203.0">203</td><td class="pos" data-sort="3.05">3.05</td><td class="" data-sort="13.0">13</td><td class="" data-sort="96.0">96</td><td class="" data-sort="0.0">0</td><td class="" data-sort="9.82">9.82</td><td class="" data-sort="7.77">7.77</td><td class="" data-sort="50.58">50.58</td><td class="" data-sort="0.0">0</td><td class="" data-sort="10.89">10.89</td><td class="neg" data-sort="-1.7">-1.7</td><td class="" data-sort="23.59">23.59</td><td class="pos" data-sort="2.34">2.34</td></tr>
@@ -165,6 +170,33 @@ function filterRows() {
   document.querySelectorAll('#t tbody tr').forEach(r => {
     r.style.display = r.cells[0].textContent.toLowerCase().includes(q) ? '' : 'none';
   });
+}
+function csvCell(v) {
+  v = (v == null ? '' : String(v));
+  return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+}
+function downloadCSV() {
+  const table = document.getElementById('t');
+  const heads = Array.from(table.tHead.rows[0].cells).map(th => th.getAttribute('data-col'));
+  // 'Stock' becomes two columns in the export: Name + Symbol
+  const out = [['Name', 'Symbol'].concat(heads.slice(1)).map(csvCell).join(',')];
+  Array.from(table.tBodies[0].rows).forEach(r => {
+    if (r.style.display === 'none') return;            // respect the filter
+    const stock = r.cells[0];
+    const name = (stock.querySelector('a') || stock).textContent.trim();
+    const sym = (stock.querySelector('.sym') || {textContent:''}).textContent.trim();
+    const rest = Array.from(r.cells).slice(1).map(td => {
+      const ds = td.getAttribute('data-sort');
+      return ds !== null && ds !== '' ? ds : td.textContent.trim();
+    });
+    out.push([name, sym].concat(rest).map(csvCell).join(','));
+  });
+  const blob = new Blob([out.join('\n')], {type: 'text/csv;charset=utf-8;'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'stock-watchlist-' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
 }
 </script>
 </body>
